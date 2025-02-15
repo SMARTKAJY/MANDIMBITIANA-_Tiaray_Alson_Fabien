@@ -1,0 +1,35 @@
+VARIABLE a, b, c ENTIERS
+
+Afficher "Entrez la valeur du premier cote : "
+Lire a
+Afficher "Entrez la valeur du deuxieme cote : "
+Lire b
+Afficher "Entrez la valeur du troisieme cote : "
+Lire c
+
+SI (a + b <= c) OU (a + c <= b) OU (b + c <= a) ALORS
+    Afficher "Ce n'est pas un triangle."
+SINON
+    // Ici on sait que c'est un triangle
+    SI (a == b ET b == c) ALORS
+        Afficher "Triangle equilateral."
+    SINON SI (a == b) OU (b == c) OU (a == c) ALORS
+        Afficher "Triangle isocèle."
+    SINON
+        // Pour vérifier s'il est rectangle, il est plus sûr de trier les côtés
+        // afin de toujours comparer le plus grand côté aux deux plus petits.
+        // pour trier (a, b, c) par ordre croissant :
+        //   si a > b alors échanger a et b
+        //   si a > c alors échanger a et c
+        //   si b > c alors échanger b et c
+        // Après cela, c sera le plus grand.
+        
+        // Vérification rectangle
+        SI (a*a + b*b == c*c) ALORS
+            Afficher "Triangle rectangle."
+        SINON
+            Afficher "Triangle quelconque."
+        FINSI
+      FINSI
+    FINSI
+FINSI
