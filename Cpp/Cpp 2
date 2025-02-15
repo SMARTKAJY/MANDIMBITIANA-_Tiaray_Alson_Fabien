@@ -1,0 +1,43 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a, b, c;
+    cout << "Entrez la valeur du premier cote : ";
+    cin >> a;
+    cout << "Entrez la valeur du deuxieme cote : ";
+    cin >> b;
+    cout << "Entrez la valeur du troisieme cote : ";
+    cin >> c;
+
+    // Vérification des conditions d'existence d'un triangle
+    if ((a + b <= c) || (a + c <= b) || (b + c <= a))
+        {cout << "Ce n'est pas un triangle." << endl;} 
+    else {
+        // On sait que c'est un triangle
+        if (a == b && b == c) 
+            { cout << "Triangle equilateral." << endl;}
+        
+        else if (a == b || b == c || a == c) 
+            {cout << "Triangle isocèle." << endl;}
+        
+        else {
+            // Pour la vérification du triangle rectangle, on veut identifier
+            // le plus grand côté pour l'utiliser comme "hypoténuse" potentielle.
+            // On peut trier les valeurs (a, b, c) pour simplifier la vérification.
+            double x = a, y = b, z = c;
+            
+            // Tri basique (on peut aussi utiliser std::sort dans <algorithm>)
+            if (x > y) { double temp = x; x = y; y = temp; }
+            if (x > z) { double temp = x; x = z; z = temp; }
+            if (y > z) { double temp = y; y = z; z = temp; }
+
+            // Maintenant z est le plus grand
+            if ((x * x + y * y) == (z * z)) 
+               {cout << "Triangle rectangle." << endl;}
+            else 
+                {cout << "Triangle quelconque." << endl;}
+            }
+          }
+    return 0; }
