@@ -1,0 +1,12 @@
+VARIABLE age ENTIER
+
+Afficher "Entrez votre âge : "
+Lire age
+
+SI age < 18 ALORS
+    Afficher "Vous êtes mineur."
+SINON SI age <= 60 ALORS
+    Afficher "Vous êtes adulte."
+SINON
+    Afficher "Vous êtes senior."
+FINSI
