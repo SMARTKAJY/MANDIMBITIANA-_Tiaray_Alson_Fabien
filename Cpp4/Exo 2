@@ -1,0 +1,27 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+
+    // Demande à l'utilisateur la taille du tableau
+    cout << "Entrez la taille du tableau : ";
+    cin >> N;
+
+    // Allocation dynamique d'un tableau de N entiers
+    int* tableau = new int[N];
+
+    // Remplissage du tableau avec des valeurs aléatoires (entre 1 et 100)
+    cout << "Valeurs du tableau : ";
+    for (int i = 0; i < N; i++) {
+        tableau[i] = rand() % 100 + 1; // Génère un nombre entre 1 et 100
+        cout << tableau[i] << " ";
+    }
+    cout << endl;
+
+    // Libération de la mémoire
+    delete[] tableau;
+
+    return 0;
+}
