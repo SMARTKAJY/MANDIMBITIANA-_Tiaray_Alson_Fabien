@@ -1,0 +1,30 @@
+
+#include <iostream>
+using namespace std;
+
+// Fonction de recherche d'un élément dans un tableau
+bool rechercher(int tab[], int taille, int valeur) {
+    for (int i = 0; i < taille; i++) {
+        if (tab[i] == valeur) {
+            return true; // La valeur est trouvée
+        }
+    }
+    return false; // La valeur n'est pas trouvée
+}
+
+int main() {
+    int tab[] = {10, 20, 30, 40, 50}; // Exemple de tableau
+    int taille = sizeof(tab) / sizeof(tab[0]);
+    int valeur;
+
+    cout << "Entrez la valeur à rechercher : ";
+    cin >> valeur;
+
+    if (rechercher(tab, taille, valeur)) {
+        cout << "La valeur " << valeur << " est présente dans le tableau." << endl;
+    } else {
+        cout << "La valeur " << valeur << " n'est pas présente dans le tableau." << endl;
+    }
+
+    return 0;
+}
